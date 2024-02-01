@@ -1,40 +1,29 @@
-// InventoryManager.h
-
-#ifndef INVENTORYMANAGER_H
+#ifndef INVENTORYMANGER_H
 #define INVENTORYMANAGER_H
 
-#include <iostream>
 #include <string>
+#include <vector>
 
-// Assuming a maximum of 100 products in the inventory
-const int MAX_INVENTORY_SIZE = 100;
-
-// Product class
-class Product {
-public:
+// Define the Product struct
+struct Product {
     int productID;
     std::string productName;
     double price;
-    int quantityStored;
+    int quantity;
     int minQuantity;
-
-    Product(int id, std::string name, double price, int quantity, int minQty);
 };
 
-// InventoryManager class
+// Define the InventoryManager class
 class InventoryManager {
 private:
-    Product inventory[MAX_INVENTORY_SIZE];
-    int numProducts;  // Number of products currently in the inventory
-
-    int findProductByID(int productID);
+    static const int MAX_PRODUCTS = 100; // Maximum number of products
+    Product inventory[MAX_PRODUCTS];
+    int productCount = 0; // Current number of products in inventory
 
 public:
-    InventoryManager();
-
-    void addProduct(int id, std::string name, double price, int quantity, int minQty);
-    void searchProduct(int productID);
-    // ... Other methods ...
+    bool addProduct(int id, const std::string& name, double price, int quantity, int minQuantity);
+    Product* searchProduct(int id);
+    double makeBill(const std::vector<std::pair<int, int>>& productsPurchased);
 };
 
-#endif // INVENTORYMANAGER_H
+#endif // INVENTORY_H

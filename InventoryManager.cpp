@@ -1,45 +1,42 @@
-// InventoryManager.cpp
-
+#include <iostream>
 #include "InventoryManager.h"
+#include <vector>
 
-// Product constructor
-Product::Product(int id, std::string name, double price, int quantity, int minQty)
-    : productID(id), productName(name), price(price), quantityStored(quantity), minQuantity(minQty) {}
 
-// InventoryManager constructor
-InventoryManager::InventoryManager() : numProducts(0) {}
+class InventoryManager {
+private:
+    static const int MAX_PRODUCTS = 100; // Maximum number of products
+    Product inventory[MAX_PRODUCTS];
+    int productCount = 0; // Current number of products
 
-// Private method to find a product by ID
-int InventoryManager::findProductByID(int productID) {
-    for (int i = 0; i < numProducts; ++i) {
-        if (inventory[i].productID == productID) {
-            return i;
+public:
+    bool addProduct(int id, const std::string& name, double price, int quantity, int minQuantity) {
+        if (productCount >= MAX_PRODUCTS) return false; // Inventory is full
+        inventory[productCount++] = {id, name, price, quantity, minQuantity};
+        return true;
+    }
+
+    Product* searchProduct(int id) {
+        for (int i = 0; i < productCount; i++) {
+            if (inventory[i].productID == id) {
+                return &inventory[i];
+            }
         }
+        return nullptr; // Product not found
     }
-    return -1; // Not found
-}
 
-// Method to add a product
-void InventoryManager::addProduct(int id, std::string name, double price, int quantity, int minQty) {
-    if (numProducts >= MAX_INVENTORY_SIZE) {
-        std::cout << "Inventory is full." << std::endl;
-        return;
+    double makeBill(const std::vector<std::pair<int, int>>& productsPurchased) {
+        double totalCost = 0.0;
+        for (const auto& purchase : productsPurchased) {
+            Product* product = searchProduct(purchase.first);
+            if (product != nullptr && product->quantity >= purchase.second) {
+                product->quantity -= purchase.second;
+                totalCost += product->price * purchase.second;
+                if (product->quantity < product->minQuantity) {
+                    std::cout << "Manager notified: Product " << product->productName << " is below minimum quantity.\n";
+                }
+            }
+        }
+        return totalCost;
     }
-    if (findProductByID(id) != -1) {
-        std::cout << "Product ID already exists." << std::endl;
-        return;
-    }
-    inventory[numProducts++] = Product(id, name, price, quantity, minQty);
-}
-
-// Method to search for a product
-void InventoryManager::searchProduct(int productID) {
-    int index = findProductByID(productID);
-    if (index != -1) {
-        std::cout << "Product found: " << inventory[index].productName << std::endl;
-    } else {
-        std::cout << "Product not found." << std::endl;
-    }
-}
-
-// ... Implement other methods as needed ...
+};
