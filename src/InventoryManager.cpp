@@ -14,6 +14,8 @@ public:
     void addProduct();
     void makeSale();
     void makeBill();
+    void checkLowStock();
+    void displayAllProducts();
     int searchProduct(int id);
     static const int MAX_PRODUCTS = 100;
     Product inventory[MAX_PRODUCTS];
@@ -84,6 +86,36 @@ void InventoryManager::makeBill() {
     std::cout << "Total bill: $" << totalCost << std::endl;
 }
 
+void InventoryManager::checkLowStock() {
+    bool lowStockFound = false;
+
+    for (int i = 0; i < numProducts; i++) {
+        if (inventory[i].quantity < inventory[i].minQuantity) {
+            std::cout << "Low Stock Alert for Product " << inventory[i].productName << ": Quantity is below the minimum limit." << std::endl;
+            lowStockFound = true;
+        }
+    }
+
+    if (!lowStockFound) {
+        std::cout << "No low stock issues found." << std::endl;
+    }
+}
+
+void InventoryManager::displayAllProducts() {
+    if (numProducts == 0) {
+        std::cout << "No products in the inventory." << std::endl;
+    } else {
+        std::cout << "List of All Products in Inventory:" << std::endl;
+        for (int i = 0; i < numProducts; i++) {
+            std::cout << "Product ID: " << inventory[i].productID << std::endl;
+            std::cout << "Product Name: " << inventory[i].productName << std::endl;
+            std::cout << "Price: $" << inventory[i].price << std::endl;
+            std::cout << "Quantity Stored: " << inventory[i].quantity << std::endl;
+            std::cout << "Minimum Quantity: " << inventory[i].minQuantity << std::endl;
+            std::cout << "-----------------------------" << std::endl;
+        }
+    }
+}
 void InventoryManager::makeSale() {
     // Assume this method processes the sale of a single product
     // Implementation can be similar to parts of makeBill but for a single item

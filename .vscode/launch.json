@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "e:/Dite/src",
-      "program": "e:/Dite/src/build/Debug/outDebug",
+      "cwd": ".",
+      "program": "build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
