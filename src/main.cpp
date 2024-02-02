@@ -1,6 +1,6 @@
 // src/main.cpp
-#include "../include/InventoryManager.h"
 #include <iostream>
+#include "InventoryManager.cpp"
 
 int main() {
     InventoryManager manager;

@@ -1,7 +1,25 @@
 // src/InventoryManager.cpp
-#include "InventoryManager.h"
 #include <iostream>
+struct Product {
+    int productID;
+    std::string productName;
+    double price;
+    int quantity;
+    int minQuantity;
+};
 
+class InventoryManager {
+public:
+    InventoryManager() : numProducts(0) {}
+    void addProduct();
+    void makeSale();
+    void makeBill();
+    int searchProduct(int id);
+    static const int MAX_PRODUCTS = 100;
+    Product inventory[MAX_PRODUCTS];
+    int numProducts;
+    // Additional private methods or variables
+};
 void InventoryManager::addProduct() {
     if (numProducts >= MAX_PRODUCTS) {
         std::cout << "Inventory is full. Cannot add more products.\n";

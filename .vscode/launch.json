@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/ahmed el bahi/InventorySystem-c-Dite",
-      "program": "c:/Users/ahmed el bahi/InventorySystem-c-Dite/build/Debug/outDebug",
+      "cwd": "e:/Dite/src",
+      "program": "e:/Dite/src/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
