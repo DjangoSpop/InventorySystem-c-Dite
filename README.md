@@ -7,3 +7,4 @@ e. When the quantity stored in the inventory becomes less than the minimum quant
 
 
 I ll work with c++ as a software engineering Project
+great we did a lot of features made : we will keep it up
