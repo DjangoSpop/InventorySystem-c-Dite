@@ -6,12 +6,48 @@
         "${workspaceFolder}/**"
       ],
       "compilerPath": "C:/MinGW/bin/gcc.exe",
-      "cStandard": "${default}",
-      "cppStandard": "${default}",
       "intelliSenseMode": "windows-gcc-x86",
       "compilerArgs": [
         ""
-      ]
+      ],
+      "compilerPathInCppPropertiesJson": "C:/MinGW/bin/gcc.exe",
+      "mergeConfigurations": false,
+      "browse": {
+        "path": [
+          "c:/Users/ahmed el bahi/InventorySystem-c-Dite/**",
+          "c:/Users/ahmed el bahi/InventorySystem-c-Dite"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "cStandard": "${default}",
+      "cppStandard": "${default}"
+    },
+    {
+      "name": "create",
+      "includePath": [
+        "c:/Users/ahmed el bahi/InventorySystem-c-Dite/**",
+        "C:/Users/ahmed el bahi/InventorySystem-c-Dite/include/InventoryManager.h"
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
+      ],
+      "windowsSdkVersion": "10.0.19041.0",
+      "compilerPath": "cl.exe",
+      "cStandard": "c17",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-msvc-x64",
+      "compilerPathInCppPropertiesJson": "cl.exe",
+      "mergeConfigurations": false,
+      "browse": {
+        "path": [
+          "c:/Users/ahmed el bahi/InventorySystem-c-Dite/**",
+          "C:/Users/ahmed el bahi/InventorySystem-c-Dite/include/InventoryManager.h",
+          "c:/Users/ahmed el bahi/InventorySystem-c-Dite"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
     }
   ],
   "version": 4
